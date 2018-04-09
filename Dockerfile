@@ -3,8 +3,6 @@ FROM golang:1.7-alpine
 COPY . /go/src/github.com/microservices-demo/user/
 WORKDIR /go/src/github.com/microservices-demo/user/
 
-RUN apk update
-RUN apk add git
 RUN go get -v github.com/Masterminds/glide 
 RUN glide install && CGO_ENABLED=0 go build -a -installsuffix cgo -o /user main.go
 
